@@ -17,6 +17,11 @@ function indent() {
 
 cd $BUILD_DIR
 
+if [ -f Makefile.in ]; then
+  echo "-----> Running automake"
+  automake 2>&1 | indent
+fi
+
 if [ -f configure.in ]; then
   echo "-----> Running autoconf"
   autoconf 2>&1 | indent
