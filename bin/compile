@@ -17,6 +17,11 @@ function indent() {
 
 cd $BUILD_DIR
 
+if [ -f configure.in ]; then
+  echo "-----> Running autoconf"
+  autoconf 2>&1 | indent
+fi
+
 # configure
 if [ -f configure ]; then
   echo "-----> Configuring"
